@@ -6,7 +6,7 @@ from sklearn.linear_model import LinearRegression
 app = Flask(__name__)
 
 # Load the trained model
-model = pickle.load(open('model/energy_model.pkl', 'rb'))
+model = pickle.load(open('energy_model.pkl', 'rb'))
 
 @app.route('/')
 def index():
@@ -26,7 +26,7 @@ def predict():
 def predict_energy(country, year):
     try:
         # Load dataset just to get all countries
-        data = pd.read_csv('data/cleaned_final_data.csv', encoding='utf-8', delimiter=',')
+        data = pd.read_csv('cleaned_final_data.csv', encoding='utf-8', delimiter=',')
 
         if country not in data['country'].unique():
             return "No data available for this country."
