@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Load the trained model
-model_path = os.path.join(os.path.dirname(__file__), 'model', 'energy_model.pkl')
+model_path = os.path.join(os.path.dirname(__file__), 'energy_model.pkl')
 logger.info("Loading model from: %s", model_path)
 logger.info("Model file exists: %s", os.path.exists(model_path))
 model = pickle.load(open(model_path, 'rb'))
@@ -49,7 +49,7 @@ def predict():
 def predict_energy(country, year):
     try:
         # Load dataset for country validation
-        data_path = os.path.join(os.path.dirname(__file__), 'data', 'cleaned_final_data.csv')
+        data_path = os.path.join(os.path.dirname(__file__),'cleaned_final_data.csv')
         logger.info("Loading data from: %s", data_path)
         logger.info("Data file exists: %s", os.path.exists(data_path))
         data = pd.read_csv(data_path, encoding='utf-8', delimiter=',')
